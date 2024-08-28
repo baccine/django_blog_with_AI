@@ -1,6 +1,6 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, redirect, get_object_or_404 
 from django.core.paginator import Paginator
-from .models import Post
+from .models import Post, Category
 from .forms import PostForm
 
 def home(request):
@@ -11,7 +11,7 @@ def post_list(request):
     post_list = Post.objects.all().order_by('-created_date')
     paginator = Paginator(post_list, 10)
     page = request.GET.get('page')
-    posts = Paginator.get_page(page)
+    posts = paginator.get_page(page)
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 def post_detail(request, pk):
@@ -20,7 +20,7 @@ def post_detail(request, pk):
 
 # def post_detail(request, slug):
 #     post = get_object_or_404(Post, slug=slug)
-#     return render(request, 'bllog/post_detail.html', {'post': post})
+#     return render(request, 'blog/post_detail.html', {'post': post})
 
 def my_view(request):
     data = {
@@ -41,10 +41,6 @@ def post_create(request):
     else:
         form = PostForm()
     return render(request, 'blog/post_form.html', {'form': form})
-
-from django.shortcuts import render, get_object_or_404, redirect
-from .forms import PostForm
-from .models import Post
 
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
