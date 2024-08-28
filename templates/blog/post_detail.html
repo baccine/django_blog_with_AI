@@ -1,7 +1,5 @@
 {% extends 'blog/base.html' %}
 
-{% block title %}{{ post.title }}{% endblock %}
-
 {% block content %}
     <article>
         <h2>{{ post.title }}</h2>
@@ -14,12 +12,13 @@
         <div class="content">
             {{ post.content|linebreaks }}
         </div>
-    </article>
     
     <div class="post-actions">
+    {% if user.is_authenticated and post.author == user %}
         <a href="{% url 'post_edit' pk=post.pk %}" class="btn btn-primary">Edit</a>
         <a href="{% url 'post_delete' pk=post.pk %}" class="btn btn-danger">Delete</a>
+    {% endif %}
     </div>
-    
+    </article>
     <p><a href="{% url 'post_list' %}">Back to all posts</a></p>
 {% endblock %}

@@ -43,6 +43,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'blog.context_processors.categories',  # 추가된 컨텍스트 프로세서
             ],
         },
     },
@@ -102,3 +103,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+LOGIN_REDIRECT_URL = '/'  # 로그인 후 리다이렉트될 URL
+LOGOUT_REDIRECT_URL = '/'  # 로그아웃 후 리다이렉트될 URL
+
