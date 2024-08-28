@@ -2,7 +2,7 @@
 google docs link : https://docs.google.com/document/d/1KaeK4aQ7wyCmBxKHq9OgUpXmIR-rZAKMzNKV_H8MgM0/edit
 
 작성자: 백승현
-## 진행 현황 :
+## 진행 현황 : blog fbv로 구현중
 - 구현 완료 : 게시글 목록 구현, 게시글 상세페이지 구현, 게시글 CRUD 기능 구현
 - 구현중 : 카테고리 기능 구현
 ## 프로젝트 개요
